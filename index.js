@@ -4,7 +4,7 @@ let seguirComprando = true;
 let totalCompra = 0;
 let decision;
 
-class newProduct {
+class Product {
     constructor (id, name, price) {
         this.id = id
         this.name = name
@@ -12,10 +12,10 @@ class newProduct {
     }
 };
 
-const botas = new newProduct(1, botas, 2.000);
-const velas = new newProduct(2 , velas, 300);
-const coctelera = new newProduct(3, coctelera, 890);
-const fondiue = new newProduct(4, fondiue, 4.500);
+const botas = new Product(1, `botas`, 2000);
+const velas = new Product(2 , `velas`, 300);
+const coctelera = new Product(3, `coctelera`, 890);
+const fondiue = new Product(4, `fondiue`, 4500);
 
 // 1.botas de esqui - 2.velas - 3.coctelera - 4.olla para hacer fondiue
 
@@ -36,3 +36,19 @@ while (seguirComprando === true) {
     } else { seguirComprando = false}
 };
 
+function descuento(totalCompra) {
+    let descuento = 0
+    if (totalCompra >= 5000) {
+        descuento = 10
+    } else {
+        descuento = 0
+    }
+
+    let valorDescuento = totalCompra * (descuento / 100)
+    let valorFinal = totalCompra - valorDescuento
+    return valorFinal
+};
+
+const totalCompraDescuento = descuento(totalCompra);
+
+alert (`El total de su compra es ${totalCompraDescuento}`)
